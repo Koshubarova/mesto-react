@@ -39,7 +39,7 @@ function closeAllPopups() {
 }
 
   return (
-  <div className="page">
+    <div className="page">
       <Header />
       <Main
         onEditProfile={handleEditProfileClick}
@@ -48,11 +48,12 @@ function closeAllPopups() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <PopupWithForm name='edit'
-      title='Редактировать профиль'
-      titleButton='Сохранить'
-      isOpen = {isEditProfilePopupOpen} 
-      onClose = {closeAllPopups} >
+      <PopupWithForm 
+        name='edit'
+        title='Редактировать профиль'
+        titleButton='Сохранить'
+        isOpen = {isEditProfilePopupOpen} 
+        onClose = {closeAllPopups} >
         <input
           type="text"
           id="username-input"
@@ -77,11 +78,12 @@ function closeAllPopups() {
         <span className="description-input-error popup__input-error" />
       </PopupWithForm>
 
-      <PopupWithForm name='edit-photo'
-      title='Обновить аватар'
-      titleButton='Сохранить'
-      isOpen = {isEditAvatarPopupOpen} 
-      onClose = {closeAllPopups} >
+      <PopupWithForm 
+        name='edit-photo'
+        title='Обновить аватар'
+        titleButton='Сохранить'
+        isOpen = {isEditAvatarPopupOpen} 
+        onClose = {closeAllPopups} >
         <input
           type="url"
           id="photo-input"
@@ -93,11 +95,12 @@ function closeAllPopups() {
         <span className="photo-input-error popup__input-error" />
       </PopupWithForm>
 
-      <PopupWithForm name='add'
-      title='Новое место'
-      titleButton='Создать'
-      isOpen = {isAddPlacePopupOpen} 
-      onClose = {closeAllPopups} >
+      <PopupWithForm 
+        name='add'
+        title='Новое место'
+        titleButton='Создать'
+        isOpen = {isAddPlacePopupOpen} 
+        onClose = {closeAllPopups} >
         <input
           type="text"
           id="card-name-input"
@@ -120,9 +123,10 @@ function closeAllPopups() {
         <span className="link-input-error popup__input-error" />
       </PopupWithForm>
 
-      <PopupWithForm name='delete'
-      title='Вы уверены?'
-      titleButton='Да'>
+      <PopupWithForm 
+        name='delete'
+        title='Вы уверены?'
+        titleButton='Да'>
       </PopupWithForm>
 
       <ImagePopup card={selectedCard} isOpen={isImagePopup} onClose={closeAllPopups} />
