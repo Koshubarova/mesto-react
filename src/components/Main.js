@@ -4,22 +4,22 @@ import Card from "./Card";
 
 function Main({onEditProfile, onEditAvatar, onAddPlace, onCardClick}) {
 
-const [userName, setUserName] = useState('')
-const [userDescription, setUserDescription] = useState('')
-const [userAvatar, setUserAvatar] = useState('')
-const [cards, setCards] = useState([])
+  const [userName, setUserName] = useState('')
+  const [userDescription, setUserDescription] = useState('')
+  const [userAvatar, setUserAvatar] = useState('')
+  const [cards, setCards] = useState([])
 
-useEffect(() => {
-  Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then(([dataUser, dataCard]) => {
-    dataCard.forEach(element => element.myid = dataUser._id);
-    setCards(dataCard);
-    setUserName(dataUser.name);
-    setUserDescription(dataUser.about);
-    setUserAvatar(dataUser.avatar);
-  })
-  .catch((error) => console.error(error))
-}, [])
+  useEffect(() => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([dataUser, dataCard]) => {
+      dataCard.forEach(element => element.myid = dataUser._id);
+      setCards(dataCard);
+      setUserName(dataUser.name);
+      setUserDescription(dataUser.about);
+      setUserAvatar(dataUser.avatar);
+    })
+    .catch((error) => console.error(error))
+  }, [])
 
   return (
     <main className="content">

@@ -8,35 +8,35 @@ import ImagePopup from '../components/ImagePopup';
 
 function App() {
 
-const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
-const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
-const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
-const [selectedCard, setSelectedCard] = useState({})
-const [isImagePopup, setImagePopup] = useState(false)
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
+  const [selectedCard, setSelectedCard] = useState({})
+  const [isImagePopup, setImagePopup] = useState(false)
 
-function handleEditAvatarClick() {
-  setIsEditAvatarPopupOpen(true)
-}
+  function handleEditAvatarClick() {
+    setIsEditAvatarPopupOpen(true)
+  }
 
-function handleEditProfileClick() {
-  setIsEditProfilePopupOpen(true)
-}
+  function handleEditProfileClick() {
+    setIsEditProfilePopupOpen(true)
+  }
 
-function handleAddPlaceClick() {
-  setIsAddPlacePopupOpen(true)
-}
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(true)
+  }
 
-function handleCardClick(card) {
-  setSelectedCard(card)
-  setImagePopup(true)
-}
+  function handleCardClick(card) {
+    setSelectedCard(card)
+    setImagePopup(true)
+  }
 
-function closeAllPopups() {
-  setIsEditAvatarPopupOpen(false)
-  setIsEditProfilePopupOpen(false)
-  setIsAddPlacePopupOpen(false)
-  setImagePopup(false)
-}
+  function closeAllPopups() {
+    setIsEditAvatarPopupOpen(false)
+    setIsEditProfilePopupOpen(false)
+    setIsAddPlacePopupOpen(false)
+    setImagePopup(false)
+  }
 
   return (
     <div className="page">
