@@ -1,7 +1,13 @@
-export default function PopupWithForm({ name, title, titleButton, children, isOpen, onClose }) {
+export default function PopupWithForm({ name, title, titleButton, children, isOpen, onClose, onSubmit }) {
+
+  const handleCloseByOverlay = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return (
-  <div id="popup-profile" className={`popup popup-${name} ${isOpen ? 'popup_opened' : ''}`} >
+  <div id="popup-profile" className={`popup popup-${name} ${isOpen ? 'popup_opened' : ''}`} onClick={handleCloseByOverlay} >
     <div className="popup__container">
       <button
         type="button"
@@ -12,7 +18,8 @@ export default function PopupWithForm({ name, title, titleButton, children, isOp
       <form
         className={`popup__form popup__form-${name}`}
         name="profile"
-        noValidate="" >
+        noValidate=""
+        onSubmit={onSubmit} >
         {children}
         <button type="submit" className="popup__submit">
           {titleButton}
