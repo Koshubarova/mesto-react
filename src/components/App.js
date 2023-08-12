@@ -51,12 +51,15 @@ function App() {
     if(!isLiked) {
       api.addLike(card._id, !isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
+    })
+      .catch((err) => console.log(err))
     }
     else {
       api.deleteLike(card._id, !isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    })}
+    })
+      .catch((err) => console.log(err))
+    }
   };
 
   const handleCardDelete = (card) => {
@@ -73,7 +76,7 @@ function App() {
       setCurrentUser(res)
       closeAllPopups();
     })
-    .catch((err => console.error(`Ошибка: ${err}`)))
+    .catch((err) => console.log(err))
   }
 
   function handleUpdateAvatar(dataUser) {
@@ -82,7 +85,7 @@ function App() {
         setCurrentUser(res)
         closeAllPopups();
       })
-      .catch((err => console.error(`Ошибка: ${err}`)))
+      .catch((err) => console.log(err))
   }
 
   function handleAddCard(dataCard) {
@@ -91,7 +94,7 @@ function App() {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
-      .catch((err => console.error(`Ошибка: ${err}`)))
+      .catch((err) => console.log(err))
   }
 
   useEffect(() => {
@@ -101,7 +104,7 @@ function App() {
       setCards(dataCard);
       setCurrentUser(dataUser);
     })
-    .catch((error) => console.error(error))
+    .catch((err) => console.log(err))
   }, [])
 
   return (
